@@ -1,0 +1,535 @@
+{
+    "version": "58.0",
+    "nodes": {
+        "LOAD_DATASET0": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "label": "OrderApi Subscription",
+                    "name": "OrderApi_Subscription",
+                    "type": "analyticsDataset"
+                },
+                "fields": [
+                    "OrderApi__Business_Group__c",
+                    "OrderApi__Status__c",
+                    "OrderApi__Contact__c",
+                    "OrderApi__Subscription_Plan__c",
+                    "Id"
+                ],
+                "sampleDetails": {
+                    "sortBy": [],
+                    "type": "TopN"
+                }
+            },
+            "sources": []
+        },
+        "LOAD_DATASET1": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "label": "OrderApi Subscription Plan",
+                    "name": "OrderApi_Subscription_Plan",
+                    "type": "analyticsDataset"
+                },
+                "fields": [
+                    "Id",
+                    "Name"
+                ],
+                "sampleDetails": {
+                    "sortBy": [],
+                    "type": "TopN"
+                }
+            },
+            "sources": []
+        },
+        "JOIN0": {
+            "action": "join",
+            "parameters": {
+                "joinType": "LOOKUP",
+                "leftKeys": [
+                    "OrderApi__Subscription_Plan__c"
+                ],
+                "rightKeys": [
+                    "Id"
+                ],
+                "rightQualifier": "Plan"
+            },
+            "schema": {
+                "fields": [],
+                "slice": {
+                    "fields": [],
+                    "ignoreMissingFields": true,
+                    "mode": "DROP"
+                }
+            },
+            "sources": [
+                "LOAD_DATASET0",
+                "LOAD_DATASET1"
+            ]
+        },
+        "JOIN1": {
+            "action": "join",
+            "parameters": {
+                "joinType": "LOOKUP",
+                "leftKeys": [
+                    "OrderApi__Business_Group__c"
+                ],
+                "rightKeys": [
+                    "Id"
+                ],
+                "rightQualifier": "BusinessGroup"
+            },
+            "schema": {
+                "fields": [],
+                "slice": {
+                    "fields": [],
+                    "ignoreMissingFields": true,
+                    "mode": "DROP"
+                }
+            },
+            "sources": [
+                "JOIN0",
+                "LOAD_DATASET2"
+            ]
+        },
+        "LOAD_DATASET2": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "label": "OrderApi Business Group",
+                    "name": "OrderApi_Business_Group",
+                    "type": "analyticsDataset"
+                },
+                "fields": [
+                    "Id",
+                    "OrderApi__Display_Name__c",
+                    "Name"
+                ],
+                "sampleDetails": {
+                    "sortBy": [],
+                    "type": "TopN"
+                }
+            },
+            "sources": []
+        },
+        "JOIN2": {
+            "action": "join",
+            "parameters": {
+                "joinType": "LOOKUP",
+                "leftKeys": [
+                    "OrderApi__Subscription_Plan__c"
+                ],
+                "rightKeys": [
+                    "OrderApi__Subscription_Plan__c"
+                ],
+                "rightQualifier": "Item_Subscription"
+            },
+            "schema": {
+                "fields": [],
+                "slice": {
+                    "fields": [],
+                    "ignoreMissingFields": true,
+                    "mode": "DROP"
+                }
+            },
+            "sources": [
+                "JOIN1",
+                "LOAD_DATASET3"
+            ]
+        },
+        "LOAD_DATASET3": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "connectionName": "SFDC_LOCAL",
+                    "label": "OrderApi__Item_Subscription_Plan__c",
+                    "sourceObjectName": "OrderApi__Item_Subscription_Plan__c",
+                    "type": "connectedDataset"
+                },
+                "fields": [
+                    "Id",
+                    "OrderApi__Subscription_Plan__c",
+                    "OrderApi__Item__c"
+                ],
+                "sampleDetails": {
+                    "sortBy": [],
+                    "type": "TopN"
+                }
+            },
+            "sources": []
+        },
+        "JOIN3": {
+            "action": "join",
+            "parameters": {
+                "joinType": "LOOKUP",
+                "leftKeys": [
+                    "Item_Subscription.OrderApi__Item__c"
+                ],
+                "rightKeys": [
+                    "Id"
+                ],
+                "rightQualifier": "Item"
+            },
+            "schema": {
+                "fields": [],
+                "slice": {
+                    "fields": [],
+                    "ignoreMissingFields": true,
+                    "mode": "DROP"
+                }
+            },
+            "sources": [
+                "JOIN2",
+                "LOAD_DATASET4"
+            ]
+        },
+        "LOAD_DATASET4": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "label": "OrderApi Item",
+                    "name": "OrderApi_Item",
+                    "type": "analyticsDataset"
+                },
+                "fields": [
+                    "OrderApi__Is_Subscription__c",
+                    "Id",
+                    "OrderApi__Display_Name__c",
+                    "Name",
+                    "OrderApi__Price__c"
+                ],
+                "sampleDetails": {
+                    "sortBy": [],
+                    "type": "TopN"
+                }
+            },
+            "sources": []
+        },
+        "OUTPUT0": {
+            "action": "save",
+            "parameters": {
+                "dataset": {
+                    "folderName": "Salesforce_Data_App",
+                    "label": "DMT-ACP Members",
+                    "name": "DMT_ACP_Members",
+                    "type": "analyticsDataset"
+                },
+                "fields": [],
+                "measuresToCurrencies": []
+            },
+            "sources": [
+                "FORMULA0"
+            ]
+        },
+        "JOIN4": {
+            "action": "join",
+            "parameters": {
+                "joinType": "LOOKUP",
+                "leftKeys": [
+                    "OrderApi__Contact__c"
+                ],
+                "rightKeys": [
+                    "ContactId"
+                ],
+                "rightQualifier": "Contact"
+            },
+            "schema": {
+                "fields": [],
+                "slice": {
+                    "fields": [],
+                    "ignoreMissingFields": true,
+                    "mode": "DROP"
+                }
+            },
+            "sources": [
+                "JOIN3",
+                "LOAD_DATASET5"
+            ]
+        },
+        "LOAD_DATASET5": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "label": "Contact",
+                    "name": "Contact",
+                    "type": "analyticsDataset"
+                },
+                "fields": [
+                    "Levelofexperience__c",
+                    "Gender__c",
+                    "PrimaryCompany__c",
+                    "Title",
+                    "Email",
+                    "Name",
+                    "ContactStatus__c",
+                    "IsEmailBounced",
+                    "HasOptedOutOfEmail",
+                    "ContactId",
+                    "Alumni__c"
+                ],
+                "sampleDetails": {
+                    "sortBy": [],
+                    "type": "TopN"
+                }
+            },
+            "sources": []
+        },
+        "JOIN5": {
+            "action": "join",
+            "parameters": {
+                "joinType": "LEFT_OUTER",
+                "leftKeys": [
+                    "OrderApi__Contact__c"
+                ],
+                "rightKeys": [
+                    "Contact.ContactId"
+                ],
+                "rightQualifier": "Participation"
+            },
+            "schema": {
+                "fields": [],
+                "slice": {
+                    "fields": [],
+                    "ignoreMissingFields": true,
+                    "mode": "DROP"
+                }
+            },
+            "sources": [
+                "JOIN4",
+                "LOAD_DATASET6"
+            ]
+        },
+        "LOAD_DATASET6": {
+            "action": "load",
+            "parameters": {
+                "dataset": {
+                    "label": "Participation",
+                    "name": "Participation",
+                    "type": "analyticsDataset"
+                },
+                "fields": [
+                    "Contact.ContactId",
+                    "ProgramName__c",
+                    "Status__c",
+                    "ProductCode__c",
+                    "ParticipationId"
+                ],
+                "sampleDetails": {
+                    "sortBy": [],
+                    "type": "TopN"
+                }
+            },
+            "sources": []
+        },
+        "FORMULA0": {
+            "action": "formula",
+            "parameters": {
+                "expressionType": "SQL",
+                "fields": [
+                    {
+                        "name": "OrderApi_Subscription-_Type",
+                        "label": "OrderApi Subscription-_Type",
+                        "formulaExpression": "case \r\nwhen \"Item.OrderApi__Price__c\" > 0 \r\nthen 'Paid MEMBER'\r\nwhen \"Item.OrderApi__Price__c\" = 0 and \"Contact.Email\" is not null and \"Contact.IsEmailBounced\" = 'false' and \"Contact.HasOptedOutOfEmail\" = 'false'\r\nthen 'Free MEMBER With Email'\r\nwhen  contains(\"Plan.Name\", 'Honorary')\r\nthen 'Honorary Member'\r\nElse 'Others'\r\nend",
+                        "type": "TEXT",
+                        "precision": 255,
+                        "defaultValue": ""
+                    }
+                ]
+            },
+            "sources": [
+                "JOIN5"
+            ]
+        }
+    },
+    "ui": {
+        "nodes": {
+            "LOAD_DATASET0": {
+                "label": "OrderApi Subscription",
+                "type": "LOAD_DATASET",
+                "top": 112,
+                "left": 112,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "LOAD_DATASET1": {
+                "label": "OrderApi Subscription Plan",
+                "type": "LOAD_DATASET",
+                "top": 251.5,
+                "left": 252.60000000000002,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "JOIN0": {
+                "label": "JoinMembership Plan",
+                "description": "",
+                "type": "JOIN",
+                "top": 112.4,
+                "left": 252.10000000000002
+            },
+            "JOIN1": {
+                "label": "Join Business Group",
+                "description": "",
+                "type": "JOIN",
+                "top": 112,
+                "left": 392
+            },
+            "LOAD_DATASET2": {
+                "label": "OrderApi Business Group",
+                "type": "LOAD_DATASET",
+                "top": 251.10000000000002,
+                "left": 392,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "JOIN2": {
+                "label": "Join Item Subscription Plan",
+                "description": "",
+                "type": "JOIN",
+                "top": 112,
+                "left": 532
+            },
+            "LOAD_DATASET3": {
+                "label": "OrderApi__Item_Subscription_Plan__c",
+                "type": "LOAD_DATASET",
+                "top": 251.3,
+                "left": 532,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "JOIN3": {
+                "label": "Join Item",
+                "description": "",
+                "type": "JOIN",
+                "top": 112,
+                "left": 672
+            },
+            "LOAD_DATASET4": {
+                "label": "OrderApi Item",
+                "type": "LOAD_DATASET",
+                "top": 251.89999999999998,
+                "left": 672,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "OUTPUT0": {
+                "label": "DMT-ACP Members",
+                "description": "",
+                "type": "OUTPUT",
+                "top": 112,
+                "left": 1232
+            },
+            "JOIN4": {
+                "label": "Join Contact",
+                "description": "",
+                "type": "JOIN",
+                "top": 112,
+                "left": 812
+            },
+            "LOAD_DATASET5": {
+                "label": "Contact",
+                "type": "LOAD_DATASET",
+                "top": 251.89999999999998,
+                "left": 812,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "JOIN5": {
+                "label": "Join Participation",
+                "description": "",
+                "type": "JOIN",
+                "top": 112,
+                "left": 952
+            },
+            "LOAD_DATASET6": {
+                "label": "Participation",
+                "type": "LOAD_DATASET",
+                "top": 251.89999999999998,
+                "left": 952,
+                "parameters": {
+                    "sampleSize": 2000
+                }
+            },
+            "TRANSFORM0": {
+                "label": "Add subscription type formula",
+                "description": "Add formula for the subscription type",
+                "type": "TRANSFORM",
+                "top": 112,
+                "left": 1092,
+                "graph": {
+                    "FORMULA0": {
+                        "parameters": {
+                            "type": "BASE_FORMULA_UI"
+                        },
+                        "label": "Subscription Type"
+                    }
+                },
+                "connectors": []
+            }
+        },
+        "connectors": [
+            {
+                "source": "LOAD_DATASET0",
+                "target": "JOIN0"
+            },
+            {
+                "source": "LOAD_DATASET1",
+                "target": "JOIN0"
+            },
+            {
+                "source": "JOIN0",
+                "target": "JOIN1"
+            },
+            {
+                "source": "LOAD_DATASET2",
+                "target": "JOIN1"
+            },
+            {
+                "source": "JOIN1",
+                "target": "JOIN2"
+            },
+            {
+                "source": "LOAD_DATASET3",
+                "target": "JOIN2"
+            },
+            {
+                "source": "JOIN2",
+                "target": "JOIN3"
+            },
+            {
+                "source": "LOAD_DATASET4",
+                "target": "JOIN3"
+            },
+            {
+                "source": "TRANSFORM0",
+                "target": "OUTPUT0"
+            },
+            {
+                "source": "JOIN3",
+                "target": "JOIN4"
+            },
+            {
+                "source": "LOAD_DATASET5",
+                "target": "JOIN4"
+            },
+            {
+                "source": "JOIN4",
+                "target": "JOIN5"
+            },
+            {
+                "source": "LOAD_DATASET6",
+                "target": "JOIN5"
+            },
+            {
+                "source": "JOIN5",
+                "target": "TRANSFORM0"
+            }
+        ],
+        "hiddenColumns": []
+    }
+}
