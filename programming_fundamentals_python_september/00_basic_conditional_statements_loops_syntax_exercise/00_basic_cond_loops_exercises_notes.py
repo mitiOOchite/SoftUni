@@ -15,3 +15,4 @@
 some_string = 'Hello!'
 print(len(some_string))
 print(some_string[::-1])
+print(some_string[:4:-1])
