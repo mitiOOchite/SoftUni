@@ -303,21 +303,22 @@
             "action": "load",
             "parameters": {
                 "dataset": {
-                    "label": "Participation",
+                    "type": "analyticsDataset",
                     "name": "Participation",
-                    "type": "analyticsDataset"
+                    "label": "Participation"
                 },
-                "fields": [
-                    "Contact.ContactId",
-                    "ProgramName__c",
-                    "Status__c",
-                    "ProductCode__c",
-                    "ParticipationId"
-                ],
                 "sampleDetails": {
                     "sortBy": [],
                     "type": "TopN"
-                }
+                },
+                "fields": [
+                    "ProgramType__c",
+                    "ProgramName__c",
+                    "Status__c",
+                    "ProductCode__c",
+                    "Contact.ContactId",
+                    "ParticipationId"
+                ]
             },
             "sources": []
         },
