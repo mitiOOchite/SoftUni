@@ -1,9 +1,52 @@
-Data Types
-
+                                                        Data Types
 string - text
 number - int(whole numbers), float(real numbers 1.0),complex(complex numbers), decimal - used for financial calculations (e.g 0.1 + 0.1 + 0.1)
 boolean - true/false
-additional data types:
-list
+Additional data types:
+list = [123,'Mitko','Joro','Niki']
+set
 tuple
-dictonary
+dictionary = {'name':'Amy','age':10}   -- they have a key and a value
+               key  value
+
+Variables are dynamic:
+they can be assigned and re-assigned with values, they are not static
+
+var = 42 - var is an int
+var = 'bar' var is a string
+var = True var is now a boolean
+
+isinstance function - built in returns True or False
+def isinstance(x, A_tuple): # real signature unknown; restored from __doc__
+    Return whether an object is an instance of a class or of a subclass thereof.
+    A tuple, as in ``isinstance(x, (A, B, ...))``, may be given as the target to
+    check against. This is equivalent to ``isinstance(x, A) or isinstance(x, B)
+    or ...`` etc.
+        pass
+
+def - we define a function
+
+                                                            What is a string?
+represents textual data
+strings in Python are immutable - once created IT IS NOT POSSIBLE TO MODIFY IT - we can use .replace function and assign a new value to the variable
+
+each element in the string has a position in the string - we can check it with indexing by using square brackets [] and checking positions
+the first element is index 0, we always start from 0
+the length of a string is the numbers of elements in it - we can use len() to see the number of characters
+we can use either double or single quotes, but if we want to write You're we can use backslashes to escape the end of the string or use double quoutes
+print("You're")
+print('You/re')
+
+                                                               What is an int?
+ whole number - positive or negative without decimals, of unlimited length
+ python integers are immutable!
+
+                                                                What is a float?
+ Floating point real number positive or negative, with a decimal point of unlimited length
+ float is immutable
+
+                                                                What are booleans
+ bool hold a True or False value, empty, none values and zero are considered are False if we check whether they have values
+
+                                                                What is a set?
+splits the value and removes duplicates and holds only the unique value
