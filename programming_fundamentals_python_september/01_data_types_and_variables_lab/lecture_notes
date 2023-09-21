@@ -1,6 +1,9 @@
 Data Types
 
 string - text
-number - int(whole numbers), float(real numbers 1.0),complex(complex numbers), decimal
+number - int(whole numbers), float(real numbers 1.0),complex(complex numbers), decimal - used for financial calculations (e.g 0.1 + 0.1 + 0.1)
 boolean - true/false
 additional data types:
+list
+tuple
+dictonary
