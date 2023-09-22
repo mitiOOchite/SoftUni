@@ -26,7 +26,7 @@ def isinstance(x, A_tuple): # real signature unknown; restored from __doc__
 
 def - we define a function
 
-                                                            What is a string?
+                                                             What is a string?
 represents textual data
 strings in Python are immutable - once created IT IS NOT POSSIBLE TO MODIFY IT - we can use .replace function and assign a new value to the variable
 
@@ -37,7 +37,7 @@ we can use either double or single quotes, but if we want to write You're we can
 print("You're")
 print('You/re')
 
-                                                               What is an int?
+                                                                What is an int?
  whole number - positive or negative without decimals, of unlimited length
  python integers are immutable!
 
@@ -50,3 +50,6 @@ print('You/re')
 
                                                                 What is a set?
 splits the value and removes duplicates and holds only the unique value
+                                                                What is a list?
+items separated by a comma and enclosed with square brackets
+lists are mutable
