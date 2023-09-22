@@ -19,7 +19,6 @@ def analyze_text(text):
 
 while True:
     user_choice = input('Enter \'E\' to exit or \'A\' to analyze text: ')
-
     if user_choice.upper() == 'E':
         print('Exiting the program...')
         break
