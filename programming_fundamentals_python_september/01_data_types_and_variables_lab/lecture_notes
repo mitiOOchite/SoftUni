@@ -33,7 +33,7 @@ strings in Python are immutable - once created IT IS NOT POSSIBLE TO MODIFY IT -
 each element in the string has a position in the string - we can check it with indexing by using square brackets [] and checking positions
 the first element is index 0, we always start from 0
 the length of a string is the numbers of elements in it - we can use len() to see the number of characters
-we can use either double or single quotes, but if we want to write You're we can use backslashes to escape the end of the string or use double quoutes
+we can use either double or single quotes, but if we want to write You're we can use backslashes to escape the end of the string or use double quotes
 print("You're")
 print('You/re')
 
@@ -49,7 +49,14 @@ print('You/re')
  bool hold a True or False value, empty, none values and zero are considered are False if we check whether they have values
 
                                                                 What is a set?
+sets are unordered - their positions may change upon runs - we cannot guarantee index positions
 splits the value and removes duplicates and holds only the unique value
                                                                 What is a list?
 items separated by a comma and enclosed with square brackets
 lists are mutable
+                                                                What is a tuple?
+items separated by a comma with normal brackets
+tuples are immutable, they cannot be changed
+                                                                What is a dictionary?
+dictionaries ar eordered changeable - mutable and have an index, they consiste of Key and Value
+example = {"brand": "Ford", "model": "Mustang")

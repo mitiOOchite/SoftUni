@@ -29,11 +29,20 @@ def process_data(data):  # this is how we create a function
     else:
         print('Unknown')
 
-
 process_data(42)
 process_data('Hello')
 process_data(['Mitko', 'Joro', 'KolIU'])
+
+null_variable = None
+if null_variable is None:
+    print('null_varialbe is None')
+
 new_string = string.replace('SoftUni', 'Python')
 print("You're", string)
 print('You\'re', new_string)
 
+
+student_score = {'John':85,'Emily':92,'Sam':78}
+for key, value in student_score.items():
+    print('Name:', key)
+    print('Score', value)
