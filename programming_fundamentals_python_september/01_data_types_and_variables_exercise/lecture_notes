@@ -1,0 +1,1 @@
+We get the ASCII value - number representation of the character by using the ord() function, while the chr() function will give us the letter based on the number
