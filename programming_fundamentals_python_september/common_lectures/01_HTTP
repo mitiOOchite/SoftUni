@@ -6,3 +6,8 @@ Request - response based relies on URL's
 Web Client --- > Web Server communication
 
 HTML Forms - form submissions GET and POST
+
+URL: Uniform Resource Locator
+
+htttp    :// mysite.com :8080   /demo/index.php ? id=27&lang=en  #lectures
+Protocol     --Host---  -port- ------path------   -query string- -fragment
