@@ -1,0 +1,8 @@
+HTTP Protocol - predefined instructions to establish communication between the sides
+HyperText Transfer Protocol - HTTP
+text- based client server protocol for the internet
+for transferring WEB resources - HTM files- HTML (HyperText Markup Language) is the code that is used to structure a web page and its content , image, styles(CSS)
+Request - response based relies on URL's
+Web Client --- > Web Server communication
+
+HTML Forms - form submissions GET and POST
