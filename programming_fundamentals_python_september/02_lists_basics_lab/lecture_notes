@@ -24,4 +24,4 @@ sort - will sort our list in asc order
 reverse will reverse our list
 
 looping through lists
-
+we can use in to check if a value is part of the list
