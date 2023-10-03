@@ -1,0 +1,2 @@
+list sorting on strings prioritizes capital letters
+pop deletes the last element but also stores it, so we can use it afterwards
