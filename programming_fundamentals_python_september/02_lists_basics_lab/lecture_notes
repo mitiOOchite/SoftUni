@@ -18,3 +18,10 @@ mixed data
 
 split function is used to split a string and create a list from them
 join function can be used to create a string from a list
+append adds values to the list
+remove is used to remove values from the list, if we have repeating values it is removed only once!
+sort - will sort our list in asc order
+reverse will reverse our list
+
+looping through lists
+

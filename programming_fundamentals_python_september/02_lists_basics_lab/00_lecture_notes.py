@@ -17,6 +17,17 @@ print(nums)
 nums = list(map(int, input().split(', ')))
 my_list = ['a', 'b', 'c']
 print('-'.join(my_list))
-print('index -1',my_list[-1])
-print('index -2',my_list[-2])
-print('index -3',my_list[-3])
+print('index -1', my_list[-1])
+print('index -2', my_list[-2])
+print('index -3', my_list[-3])
+my_list = []
+my_list.append(1)
+my_list.append(2)
+my_list.remove(1)
+print(my_list)
+
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# for number in my_list:
+#     print(number, end=' ')
+for index in range(len(my_list)):
+    print(f'Current index {index} - list element:{my_list[index]}')
