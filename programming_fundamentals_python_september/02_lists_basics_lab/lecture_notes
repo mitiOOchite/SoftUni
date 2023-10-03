@@ -1,0 +1,20 @@
+a list is a collection which is index supported and changeable(mutable)
+it allows duplicate members
+in python lists are written with square brackets
+list_example = ["apple","apple","banana","cherry"]
+lists are useful for storing multiple elements
+they can expand - have more data or shrink - lose data(remove)
+In python lists can store elements with different data types
+lists are basis for queues, stacks and their variation
+
+Storing data:
+a list can store:
+integers
+floats
+strings
+objects
+other lists
+mixed data
+
+split function is used to split a string and create a list from them
+join function can be used to create a string from a list
