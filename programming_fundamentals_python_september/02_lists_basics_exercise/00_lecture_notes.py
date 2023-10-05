@@ -1,4 +1,5 @@
-my_list = [1, 7, 2, 3, 5, 19, 23]
+my_list = ['1', '7', '2', '3', '5', '19', '23']
+new_list = my_list
 my_list_with_strings = ['Sofia', 'Pesho', 'tarator','Tosho', 'tosho']
 print(sorted(my_list))
 my_list.sort(reverse=False)
