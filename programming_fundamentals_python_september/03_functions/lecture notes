@@ -14,3 +14,8 @@ parameters vs arguments
 
 
 lambda functions c
+anonymous one-time function
+it can take a parameter and return a result
+x = lambda      a:      a+10
+    keyword arguments   expression
+print(x(5))
