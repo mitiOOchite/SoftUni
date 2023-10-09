@@ -8,5 +8,5 @@ def min_max_sum(nums):
     print(f'The minimum number is {min_num}\nThe maximum number is {max_num}\nThe sum number is: {sum_nums}')
     return min_num,max_num,sum_nums
 
-numbers = input().split()
+numbers = input().split()#take input values
 min_max_sum(numbers)
