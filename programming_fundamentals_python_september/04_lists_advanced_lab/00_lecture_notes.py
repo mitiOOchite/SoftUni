@@ -16,3 +16,11 @@ print(even_set)
 
 result = [num ** 2 if num % 2 == 0 else num ** 3 for num in nums]
 print(result)
+
+fruits =['apple','banana', 'banana','orange','banana']
+
+counter_of_bananas = fruits.count('banana')
+index_of_banana = fruits.index('apple')
+print(counter_of_bananas)
+print(index_of_banana)
+print(reverse_of_fruits)
