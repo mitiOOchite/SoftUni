@@ -14,5 +14,5 @@ print(squared_dict)
 even_set = {num for num in nums if num % 2 == 0}
 print(even_set)
 
-result = [num ** 2 if num % 2 == 0 else num ** 4 for num in nums]
+result = [num ** 2 if num % 2 == 0 else num ** 3 for num in nums]
 print(result)
