@@ -1,0 +1,11 @@
+list comprehension consists of :
+
+an input sequence
+a variable representing members of the input sequence
+an optional predicate expression
+an output expression producing elements in the output list
+
+x**2        for x in num        if x>0
+output       input              optional
+expression   sequence           predicate
+
