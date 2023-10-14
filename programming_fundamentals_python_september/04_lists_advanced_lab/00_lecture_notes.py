@@ -17,10 +17,17 @@ print(even_set)
 result = [num ** 2 if num % 2 == 0 else num ** 3 for num in nums]
 print(result)
 
-fruits =['apple','banana', 'banana','orange','banana']
+fruits = ['apple', 'banana', 'banana', 'orange', 'banana','date']
 
 counter_of_bananas = fruits.count('banana')
 index_of_banana = fruits.index('apple')
 print(counter_of_bananas)
 print(index_of_banana)
-print(reverse_of_fruits)
+
+
+sorted_fruits = sorted(fruits)
+print(sorted_fruits)
+
+words = ['programming', 'is', 'super', 'fun', 'Python']
+sorted_words = sorted(words, key=len)
+print(sorted_words)
