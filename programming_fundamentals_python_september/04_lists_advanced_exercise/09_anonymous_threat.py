@@ -6,10 +6,10 @@ while command[0] != '3:1':
         end_index = int(command[2])
         if start_index < 0:
             start_index = 0
-        if end_index > len(text) -1:
-            end_index = len(text) -1
-        merged_elements = ''.join(text[start_index:end_index+1])
-        text[start_index:end_index+1] = [merged_elements]
+        if end_index > len(text) - 1:
+            end_index = len(text) - 1
+        merged_elements = ''.join(text[start_index:end_index + 1])
+        text[start_index:end_index + 1] = [merged_elements]
     elif command[0] == 'divide':
         index = int(command[1])
         partitions = int(command[2])
@@ -17,13 +17,12 @@ while command[0] != '3:1':
         partition_length = len(element) // partitions
         divided_partition = []
         for current_element_index in range(partitions):
-            if current_element_index != partitions-1:
-                divided_partition.append(element[current_element_index*partition_length:(current_element_index + 1) * partition_length])
+            if current_element_index != partitions - 1:
+                divided_partition.append(
+                    element[current_element_index * partition_length:(current_element_index + 1) * partition_length])
             else:
-                divided_partition.append(element[current_element_index*partition_length:])
-        text[index:index+1] = divided_partition
-
-
-
+                divided_partition.append(element[current_element_index * partition_length:])
+        text[index:index + 1] = divided_partition
     command = input().split()
+
 print(' '.join(text))
