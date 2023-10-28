@@ -1,2 +1,6 @@
 objects that interact with each other
 a class is a blueprint for creating objects
+self references the specific object attributes --> reference to the current instance
+object values can be changed, they are mutable
+self._ = when we write the object like this we cannot alter the value of the object private attribute
+self.__ protected attribute
