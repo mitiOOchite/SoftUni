@@ -14,7 +14,7 @@ class Circle:
        area_of_sector = (angle/360)*self.radius**2*Circle.__pi
        return area_of_sector
 
-circle = Circle(10)
+circle = Circle(int(input()))
 angle = 5
 
 print(f"{circle.calculate_circumference():.2f}")
