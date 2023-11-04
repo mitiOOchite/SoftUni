@@ -1,0 +1,1 @@
+user_cred = {'user1': 'hashed_pass', 'user2': 'hashed_pass'}
