@@ -12,6 +12,6 @@ for search in range(searches):
     if searched_name in phonebook.keys():
         print(f'{searched_name} -> {phonebook[searched_name]}')
     else:
-        print(f'Contact {searched_name} does not exist')
+        print(f'Contact {searched_name} does not exist.')
 
 
