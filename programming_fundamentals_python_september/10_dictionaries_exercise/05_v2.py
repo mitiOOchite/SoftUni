@@ -10,7 +10,10 @@ while not obtained:
         value = int(current_items[index])
         key = current_items[index + 1].lower()
         if key not in items:
-            junk_items[key] = value
+            if key not in junk_items:
+                junk_items[key] = value
+            else:
+                junk_items[key] += value
         else:
             items[key] += value
             if items[key] >= 250:
@@ -20,7 +23,7 @@ while not obtained:
                     print('Shadowmourne obtained!')
                 elif key == 'fragments':
                     print('Valanyr obtained!')
-                else:
+                elif key == 'motes':
                     print('Dragonwrath obtained!')
         if obtained:
             break
