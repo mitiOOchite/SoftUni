@@ -16,7 +16,7 @@
 #     "Nikolay":{"Math":4,"Science":3,"English":2},
 # }
 # for name, value in student_records.items():
-#     print(f'*** {name} ***')
+#     print(f'*** {name} ***'
 #     for subject,score in value.items():
 #         print(f'{subject} - {score}')
 
