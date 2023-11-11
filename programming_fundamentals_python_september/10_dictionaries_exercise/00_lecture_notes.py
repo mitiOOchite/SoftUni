@@ -12,5 +12,4 @@ print(sorted(some_dict.values()))
 some_dict['mp3'] = some_dict['mp4']
 print(some_dict['mp3'])
 print(some_dict['mp4'])
-pip install simple-salesforce
 
