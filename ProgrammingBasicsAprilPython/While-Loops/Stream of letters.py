@@ -9,10 +9,10 @@ while not command == "End":
         continue
     if command == "c":
         result_string += command
-    elif command = n":
+    elif command == "n":
         pass
     elif command == "o":
         pass
     else :
-result_string += command
+        result_string += command
     command = input()
