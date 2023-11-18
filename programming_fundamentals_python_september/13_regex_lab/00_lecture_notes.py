@@ -12,4 +12,11 @@ import re
 # x = re.findall(regex,text)
 # print(x)
 
-
+mailregex = '^[a-zA-Z0-9_]+@+[a-zA-Z]+\.[a-zA-Z]+'
+emails = ['valid123@mail.bg',
+'invalid*name@email.bg']
+for email in emails:
+    if re.match(mailregex, email):
+        print(f'{email} is valid')
+    else:
+        print(f'{email} is invalid')
