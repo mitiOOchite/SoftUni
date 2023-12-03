@@ -8,7 +8,7 @@ def drive(car, distance, required_fuel):
         car['fuel'] -= required_fuel
         print(f'{car["name"]} driven for {distance} kilometers. {required_fuel} liters of fuel consumed.')
         if car['mileage'] >= 100000:
-            print(f'Time to sell the {car["name"]}')
+            print(f'Time to sell the {car["name"]}!')
             return True
     else:
         print('Not enough fuel to make that ride')
